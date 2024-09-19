@@ -26,14 +26,19 @@ def adicionar_produto():
 
 def atualizar_quantidade_produto():
     nome = input('Insira qual produto você quer alterar a quantidade: ')
+    encontrado = False
     for i in nomes:
         if i == nome:
+            encontrado = True
             quantidade_antiga = quantidades[nomes.index(i)]
             quantidade_nova = int(input('Insira a nova quantidade do produto: '))
             quantidades.insert(nomes.index(i),quantidade_nova)
             quantidades.remove(quantidade_antiga)
             print('Quantidade alterada com sucesso!')
             time.sleep(2)
+            break
+    if not encontrado:
+        print('Produto não encontrado.')
 
 
 def listar_produtos():
